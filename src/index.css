@@ -1,0 +1,29 @@
+/* src/index.css */
+
+/* 
+  Reset default browser styles and set up a full-screen layout.
+  'box-sizing: border-box' is a best practice that makes layouts more predictable.
+*/
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* 
+  Set the background color on the body or root. 
+  Using min-height ensures it's at least the height of the screen
+  but can grow if content overflows.
+*/
+#root {
+  background-color: #c5e6f3; /* A softer background color is often easier on the eyes */
+  min-height: 100vh; /* vh stands for "viewport height" */
+  text-align: center;
+}
