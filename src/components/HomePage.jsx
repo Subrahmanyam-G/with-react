@@ -1,6 +1,6 @@
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
-import profileImage from '../assets/profile.svg';
+import profileImage from '../assets/profile.jpg';
 
 // THE FIX IS HERE: Change (onNavigate) to ({ onNavigate })
 function HomePage({ onNavigate }) {
@@ -35,8 +35,8 @@ function HomePage({ onNavigate }) {
       </div>
 
       <div className="hero-image-container">
-        <img src={profileImage} alt="Ganisetti Subrahmanyam" className="hero-image" />
-        {/* <img src="/profile.jpg" alt="Profile"  className="hero-image" /> */}
+        {/* <img src={profileImage} alt="Ganisetti Subrahmanyam" className="hero-image" /> */}
+        <img src="profile.png" alt="Profile"  className="hero-image" />
       </div>
     </section>
   );
