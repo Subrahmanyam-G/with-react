@@ -1,17 +1,17 @@
 /*
-  ================================================
-  Final, Cleaned, and Fully Corrected Stylesheet
-  ================================================
-  This version includes:
-  1. The FIXED Footer layout fix.
-  2. The restored desktop flexbox layout for the Navbar.
-  3. All responsive styles for the Navbar.
-  4. All styles for all pages with no duplicates.
+  ================================================
+  Updated, Fully Corrected and Enhanced Stylesheet
+  ================================================
+  This version includes:
+  1. Responsive font size adjustments for all pages.
+  2. A corrected footer layout that no longer hides content on mobile devices.
+  3. Refined responsive styles for all major sections.
+  4. **NEW: Specific adjustments for screen sizes between 768px and 856px.**
 */
 
-/* === 1. GLOBAL & MAIN LAYOUT (for Fixed Footer) === */
+/* === 1. GLOBAL & MAIN LAYOUT (Fixed Footer) === */
 main {
-  /* This padding prevents the fixed footer from hiding content at the bottom */
+  /* Padding is needed for the fixed footer on desktop */
   padding-bottom: 160px; /* Adjust if your footer height changes */
 }
 
@@ -23,7 +23,7 @@ main {
   height: 60px;
   padding: 0 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative; /* Needed for the mobile menu */
+  position: relative;
   z-index: 1000;
 }
 
@@ -35,14 +35,12 @@ main {
   flex-shrink: 0;
 }
 
-/* Container for all links */
 .navbar-menu {
   display: flex;
   align-items: center;
   width: 100%;
 }
 
-/* Container for main links */
 .navbar-links {
   display: flex;
   gap: 0.5rem;
@@ -65,9 +63,8 @@ main {
   color: rgb(15, 9, 9);
 }
 
-/* Container for Login button */
 .navbar-login {
-  margin-left: auto; /* Pushes the login button to the end */
+  margin-left: auto;
 }
 
 .navbar-login button {
@@ -86,7 +83,6 @@ main {
   color: rgb(15, 9, 9);
 }
 
-/* Hamburger Icon */
 .hamburger {
   display: none;
   font-size: 1.8rem;
@@ -207,11 +203,19 @@ main {
   background-color: #d6006c;
   transform: translateY(-2px);
 }
+@media (max-width: 1080px) {
+  .hero-section {
+    margin: 1rem 1rem;
+  }
+  
+}
+
 @media (max-width: 700px) {
   .hero-section {
     flex-direction: column;
     text-align: center;
     padding: 2rem 1.5rem;
+    margin: 1rem 1rem;
   }
   .hero-text {
     text-align: center;
@@ -219,6 +223,19 @@ main {
   }
   .hero-image-container {
     order: 1;
+  }
+}
+
+/* New: Responsive Font Sizing */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-role {
+    font-size: 1.8rem;
+  }
+  .hero-description {
+    font-size: 0.95rem;
   }
 }
 
@@ -352,6 +369,22 @@ main {
   padding-left: 20px;
 }
 
+/* New: Responsive Font Sizing & Spacing for Concepts/Experience */
+@media (max-width: 768px) {
+  .concepts-page h2, .experience-page h2 {
+    font-size: 2rem;
+  }
+  .tab-content h3 {
+    font-size: 1.8rem;
+  }
+  .concept-item h4 {
+    font-size: 1.2rem;
+  }
+  .concept-item p, .concept-item li {
+    font-size: 0.9rem;
+  }
+}
+
 /* === 5. FOOTER STYLES (Edited for Fixed Position) === */
 .footer {
   position: fixed;
@@ -420,7 +453,32 @@ main {
 .footer-copyright p {
   margin: 0;
 }
+
+/*   NEW: Media query for screen sizes between 768px and 856px
+  This specifically addresses the footer and content issues on tablets and smaller desktops.
+*/
+@media (max-width: 856px) and (min-width: 769px) {
+  /* This prevents the footer from overlapping content on smaller desktop screens */
+  .footer {
+    position: static;
+  }
+  
+  /* Reset the padding to allow content to flow naturally */
+  main {
+    padding-bottom: 2rem;
+  }
+}
+
+/* Fix for iPad and Mobile: Footer no longer fixed */
 @media (max-width: 768px) {
+  /* Remove fixed position on smaller screens */
+  .footer {
+    position: static;
+  }
+  /* Remove the padding from the main content so it doesn't leave a big empty space */
+  main {
+    padding-bottom: 2rem;
+  }
   .footer-container {
     flex-direction: column;
     align-items: center;

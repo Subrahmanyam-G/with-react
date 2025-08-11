@@ -35,7 +35,6 @@ function HomePage({ onNavigate }) {
       </div>
 
       <div className="hero-image-container">
-        {/* <img src={profileImage} alt="Ganisetti Subrahmanyam" className="hero-image" /> */}
         <img src="profile.png" alt="Profile"  className="hero-image" />
       </div>
     </section>
