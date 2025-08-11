@@ -1,0 +1,121 @@
+/* Styling for the Journey component */
+.topics-container {
+  padding: 10px; /* Reduced padding to make the boxes smaller */
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.topics-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px; /* Reduced font size for the title within the red box */
+  font-weight: bold;
+  color: #f4f4f4;
+}
+
+.topics-title svg {
+  color: #f4f4f4;
+}
+
+.topic-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  margin: 8px 0;
+  border-radius: 8px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.topic-item:hover {
+  background: #eef5ff;
+  border-color: #01070f;
+  transform: translateY(-2px);
+}
+
+.topic-icon {
+  font-size: 18px;
+  color: #010408;
+}
+
+.topic-text {
+  font-size: 18px;
+  color: #1a1a1a;
+}
+
+.topic-text b {
+  color: #060a11;
+}
+
+.red-card {
+  background: #b6171f;
+  color: white;
+  border: 1px solid #b6171f;
+}
+
+.black-card {
+  max-width: 1082px; /* Reduced the max-width of the main card */
+  margin: 2rem auto;
+  background-color: #212529;
+  padding: 2rem;
+  border-radius: 10px;
+  min-height: calc(74vh - 60px);
+}
+
+.content-wrapper {
+  max-width: 800px;
+  margin: auto;
+}
+
+.journey-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.journey-title-container h1 {
+  font-size: 40px; /* Increased the font size of the main title */
+}
+
+.divider-line {
+  width: 100%;
+  height: 2px;
+  background-color: #343a40;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+/* New styles for expandable sections */
+.expandable-header {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chevron-icon {
+  transition: transform 0.3s ease;
+}
+
+.chevron-icon.expanded {
+  transform: rotate(180deg);
+}
+
+.expandable-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding-top: 0;
+}
+
+.expandable-content.expanded {
+  max-height: 500px;
+  padding-top: 20px;
+}

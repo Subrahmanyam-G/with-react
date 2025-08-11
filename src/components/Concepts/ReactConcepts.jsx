@@ -1,93 +1,38 @@
 import React from "react";
 import "./Concepts.css";
+import { FaReact } from "react-icons/fa";
 
-const ReactOverview = () => {
+function ReactTopics() {
+  const topics = [
+    { title: "What is React?", def: "JavaScript library for building modular, efficient UIs." },
+    { title: "Key Features", def: "Components, Virtual DOM, one-way data flow, JSX, SEO-friendly." },
+    { title: "React Components", def: "Smallest UI units that enhance maintainability." },
+    { title: "Virtual DOM", def: "Lightweight DOM copy for faster updates." },
+    { title: "Types of Components", def: "Class-based and functional (modern focus on functional)." },
+    { title: "Styling React Components", def: "Inline styles, CSS classes, styled-components." },
+    { title: "JSX", def: "HTML-like syntax compiled to JavaScript." },
+    { title: "State & Props", def: "Manage dynamic data and pass values between components." },
+    { title: "Lifecycle Methods", def: "Mount, update, and unmount phases of components." },
+    { title: "Hooks", def: "Functions like useState and useEffect for state and side effects." },
+    { title: "Forms", def: "Controlled and uncontrolled components for user input." },
+    { title: "Refs", def: "Directly access DOM elements." },
+    { title: "Routing", def: "Navigate between views with React Router." },
+    { title: "Redux", def: "Centralized state management with actions, reducers, and store." }
+  ];
+
   return (
     <div className="topics-container">
       <h2 className="topics-title">React.js Topics</h2>
-
-      <div className="topic-item">
-        <span className="topic-icon">⚛️</span>
-        <span className="topic-text"><b>Introduction to React:</b> Created by Jordan Walke. A JavaScript library for building user interfaces, modular and efficient, ideal for dynamic applications.</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">⚡</span>
-        <span className="topic-text"><b>Why Use React?</b> Simplifies UI development, improves performance with Virtual DOM, and enhances code reusability.</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">📦</span>
-        <span className="topic-text"><b>React Installation:</b> Install via Create React App, Vite, or integrate into an existing project using npm or yarn.</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">🔑</span>
-        <span className="topic-text"><b>Key Features:</b> Component-based architecture, Virtual DOM, Unidirectional data flow, JSX syntax, SEO-friendly.</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">🧩</span>
-        <span className="topic-text"><b>Components:</b> The building blocks of a React app. Can be Class-based or Functional (modern approach focuses on functional).</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">🌐</span>
-        <span className="topic-text"><b>Virtual DOM:</b> Lightweight copy of the actual DOM, updates efficiently without full-page re-renders.</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">📝</span>
-        <span className="topic-text"><b>JSX:</b> Special syntax for writing React elements. Similar to HTML but supports JavaScript expressions inside curly braces.</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">🎨</span>
-        <span className="topic-text"><b>Styling in React:</b> Inline styles, CSS classes, CSS modules, or styled-components for modular styling.</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">🔄</span>
-        <span className="topic-text"><b>State:</b> Stores dynamic data in a component. Managed using the useState hook in functional components.</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">📩</span>
-        <span className="topic-text"><b>Props:</b> Read-only data passed from parent to child components for customization.</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">⏳</span>
-        <span className="topic-text"><b>Lifecycle Methods:</b> Different phases of a component — Mounting, Updating, and Unmounting.</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">🪝</span>
-        <span className="topic-text"><b>React Hooks:</b> Special functions like useState and useEffect that allow state and lifecycle features in functional components.</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">📋</span>
-        <span className="topic-text"><b>Forms:</b> Controlled (state-based) and uncontrolled (ref-based) form handling in React.</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">🔍</span>
-        <span className="topic-text"><b>Refs:</b> Access DOM elements directly using the useRef hook.</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">🗺️</span>
-        <span className="topic-text"><b>Routing:</b> Navigation in single-page apps using React Router — BrowserRouter, Routes, Route, and parameters.</span>
-      </div>
-
-      <div className="topic-item">
-        <span className="topic-icon">🛠️</span>
-        <span className="topic-text"><b>State Management with Redux:</b> Centralized state handling using Actions, Reducers, Store, and Middleware.</span>
-      </div>
-
+      {topics.map((t, i) => (
+        <div key={i} className="topic-item">
+          <FaReact className="topic-icon" />
+          <p className="topic-text">
+            <b>{t.title}:</b> {t.def}
+          </p>
+        </div>
+      ))}
     </div>
   );
-};
+}
 
-export default ReactOverview;
+export default ReactTopics;

@@ -1,70 +1,83 @@
-import React, { useState } from 'react';
-import './ExperiencePage.css'
+import React, { useState } from "react";
+import { FaBriefcase, FaGraduationCap, FaProjectDiagram, FaTools, FaChevronDown } from "react-icons/fa";
+import './Journey.css'
 
-// We'll store your experience data in an array of objects
-const experienceData = [
-  {
-    title: 'Infosys Ltd - Technology Analyst',
-    content: `
-      <p><strong>Duration:</strong> 3.6 years</p>
-      <p>As a Technology Analyst, my primary focus is on developing robust and scalable frontend applications.</p>
-      <ul>
-        <li><strong>Frontend:</strong> ReactJS, TypeScript, JavaScript (ES6+), HTML, CSS, Tailwind CSS</li>
-        <li><strong>Testing Tools:</strong> Cypress, Jest</li>
-        <li><strong>Backend & Data:</strong> GraphQL, Node.js, Express.js, MongoDB</li>
-        <li><strong>Tools & Methodologies:</strong> Git, Bitbucket, Sonar, Agile</li>
-      </ul>
-    `
-  },
-  {
-    title: 'Aditya College of Engineering - B.Tech, Mechanical Engineering',
-    content: `
-      <p><strong>Graduated:</strong> November 2021</p>
-      <p>My engineering background provided me with strong problem-solving skills and a solid foundation in logical thinking, which I now apply to software development challenges.</p>
-    `
-  },
-  {
-    title: 'Session Topic: Building Scalable Frontend Applications with ReactJS',
-    content: `
-      <p>In this session, we explore the core principles of ReactJS for creating applications that are not only interactive but also maintainable and scalable. We will cover component-based architecture, state management, and best practices for building modern web interfaces.</p>
-    `
-  }
-];
+const Journey = () => {
+  // Array of strings for professional summary
+  const professionalSummary = [
+    "Frontend Developer with 2.9 years of experience building responsive, scalable, and user-friendly web applications using ReactJS, TypeScript, and JavaScript.",
+    "Skilled in optimizing performance, writing clean and maintainable code, and collaborating in Agile methodologies.",
+    "Proficient in tools like Jest, Tailwind CSS, and Bitbucket.",
+    "Experienced in leveraging GraphQL and Cypress for robust application testing and efficient data handling."
+  ];
 
-function ExperiencePage() {
-  // This state will keep track of which accordion item is currently open
-  const [activeIndex, setActiveIndex] = useState(null);
+  // Array of strings for work experience details
+  const workExperience = [
+    "Built responsive and scalable web applications using ReactJS, TypeScript, and modern JavaScript (ES6+).",
+    "Migrated and refactored legacy codebases to modern React standards.",
+    "Developed reusable components, integrated RESTful APIs, and managed state with Context API.",
+    "Improved performance with code-splitting, lazy loading, and optimized rendering.",
+    "Wrote unit and integration tests with Jest and React Testing Library.",
+    "Utilized GraphQL for efficient data querying and Cypress for end-to-end testing.",
+    "Collaborated in Agile teams to deliver high-quality solutions."
+  ];
 
-  // This function handles the click event
-  const handleToggle = (index) => {
-    // If the clicked item is already open, close it. Otherwise, open the new one.
-    setActiveIndex(activeIndex === index ? null : index);
+  // Array of strings for educational background
+  const education = [
+    "B.Tech in Mechanical Engineering - Aditya College of Engineering and Technology (May 2018 - Nov 2021)"
+  ];
+
+  // Array of strings for projects
+  const projects = [
+    "Offline Council - Migrated codebase to TypeScript & React, improved scalability, implemented lazy loading, code-splitting, and maintained high test coverage.",
+    "Financing Website - Developed credit card management pages, improved UI/UX, used GraphQL & Cypress for testing."
+  ];
+
+  // Array of strings for skills
+  const skills = [
+    "Frontend: HTML, CSS, Tailwind CSS, JavaScript (ES6+), TypeScript, ReactJS",
+    "Testing: Cypress, Jest",
+    "Backend: GraphQL, Node.js, Express.js",
+    "Tools: Git, Bitbucket, Sonar, Agile Methodologies, MongoDB"
+  ];
+
+  // Helper component for expandable sections
+  const ExpandableSection = ({ title, icon, items }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    return (
+      <div className="topics-container red-card">
+        <div className="topics-title expandable-header" onClick={() => setIsExpanded(!isExpanded)}>
+          <h2>{icon} {title}</h2>
+          <FaChevronDown className={`chevron-icon ${isExpanded ? 'expanded' : ''}`} />
+        </div>
+        <div className={`expandable-content ${isExpanded ? 'expanded' : ''}`}>
+          {items.map((item, index) => (
+            <div key={index} className="topic-item">
+              <span className="topic-text">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
   };
 
   return (
-    <div className="experience-page">
-      <h2>My Journey & Expertise</h2>
-      <div className="accordion">
-        {experienceData.map((item, index) => (
-          <div key={index} className="accordion-item">
-            <button
-              className={`accordion-title ${activeIndex === index ? 'active' : ''}`}
-              onClick={() => handleToggle(index)}
-            >
-              {item.title}
-              <span className="accordion-icon">{activeIndex === index ? '-' : '+'}</span>
-            </button>
-            <div
-              className={`accordion-content ${activeIndex === index ? 'open' : ''}`}
-            >
-              {/* dangerouslySetInnerHTML is used here to render the HTML from our data */}
-              <div dangerouslySetInnerHTML={{ __html: item.content }} />
-            </div>
-          </div>
-        ))}
+    <div className="black-card">
+      <div className="journey-title-container">
+        <h1 className="topics-title">🚀 My Journey</h1>
+        <div className="divider-line"></div>
+      </div>
+      <div className="content-wrapper">
+        {/* Render each section with the new ExpandableSection component */}
+        <ExpandableSection title="Professional Summary" icon={<FaBriefcase />} items={professionalSummary} />
+        <ExpandableSection title="Work Experience" icon={<FaBriefcase />} items={workExperience} />
+        <ExpandableSection title="Education" icon={<FaGraduationCap />} items={education} />
+        <ExpandableSection title="Projects" icon={<FaProjectDiagram />} items={projects} />
+        <ExpandableSection title="Skills" icon={<FaTools />} items={skills} />
       </div>
     </div>
   );
-}
+};
 
-export default ExperiencePage;
+export default Journey;

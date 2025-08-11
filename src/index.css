@@ -22,8 +22,7 @@ html, body, #root {
   Using min-height ensures it's at least the height of the screen
   but can grow if content overflows.
 */
-#root {
-  background-color: white; /* A softer background color is often easier on the eyes */
+#root { /* A softer background color is often easier on the eyes */
   min-height: 100vh; /* vh stands for "viewport height" */
   text-align: center;
 }

@@ -39,55 +39,7 @@
 }
 
 .topic-text {
-  font-size: 16px;
-  color: #1a1a1a;
-}
-
-.topic-text b {
-  color: #060a11;
-}
-.topics-container {
-  background: #b6171f;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 800px;
-  margin: auto;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.topics-title {
-  text-align: center;
-  font-size: 28px;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 20px;
-}
-
-.topic-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 15px;
-  margin: 8px 0;
-  border-radius: 8px;
-  background: white;
-  border: 1px solid #e2e8f0;
-  transition: all 0.3s ease;
-}
-
-.topic-item:hover {
-  background: #eef5ff;
-  border-color: #01070f;
-  transform: translateY(-2px);
-}
-
-.topic-icon {
   font-size: 18px;
-  color: #010408;
-}
-
-.topic-text {
-  font-size: 16px;
   color: #1a1a1a;
 }
 
