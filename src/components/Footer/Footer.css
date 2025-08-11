@@ -1,0 +1,123 @@
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #212529;
+  color: #adb5bd;
+  padding: 1rem;
+  border-top: 1px solid #343a40;
+}
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.footer-info, .footer-contact, .footer-social {
+  flex: 1;
+  min-width: 250px;
+}
+.footer h4 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+.footer h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #ff007f;
+}
+.footer p, .footer span {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.contact-item {
+  display: flex;
+  justify-self: center;
+  padding: auto;
+  gap: 0.5rem;
+}
+.footer-social a {
+  color: #adb5bd;
+  font-size: 1.8rem;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+.footer-social a:hover {
+  color: #ff007f;
+}
+.footer-copyright {
+  text-align: center;
+  padding-top: 0.5rem;
+  border-top: 1px solid #343a40;
+  font-size: 0.9rem;
+}
+.footer-copyright p {
+  margin: 0;
+}
+
+@media (max-width: 856px) and (min-width: 769px) {
+  .footer {
+    position: static;
+  }
+  main {
+    padding-bottom: 2rem;
+  }
+}
+
+/* Updated media query for mobile screens */
+@media (max-width: 768px) {
+  .footer {
+    position: static;
+    padding: 0;
+  }
+  main {
+    padding-bottom: 2rem;
+  }
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+    padding: 0;
+  }
+  .footer h4 {
+    margin: 0;
+    padding-bottom: 0.25rem;
+  }
+  .footer h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px; /* Increased the length of the pink line */
+  }
+  .footer-info, .footer-contact, .footer-social {
+    min-width: 100%;
+    padding: 0.5rem 0;
+    margin: 0;
+  }
+  .footer p, .footer span {
+    margin: 0;
+  }
+  .footer-copyright {
+    padding: 0.5rem 0;
+    margin: 0;
+    font-size: 0.8rem;
+  }
+  .footer-social a {
+    font-size: 1.5rem;
+  }
+  .footer-copyright p {
+    margin: 0;
+  }
+}

@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Navbar from './components/Navbar';
-import HomePage from './components/HomePage';
+import Navbar from './components/Navbar/Navbar';
+import HomePage from './components/Aboutpage/HomePage';
 import Concepts from './components/Concepts/Concepts'
-import ExperiencePage from './components/ExperiencePage';
-import Footer from './components/Footer';
+import ExperiencePage from './components/ExperiencePage/ExperiencePage';
+import Footer from './components/Footer/Footer';
 import './App.css';
 
 function App() {
@@ -17,7 +17,6 @@ function App() {
     if (activeView === 'experience') {
       return <ExperiencePage />;
     }
-    // --- THIS IS THE NEW LOGIC YOU NEED ---
     if (activeView === 'concepts') {
       return <Concepts />;
     }

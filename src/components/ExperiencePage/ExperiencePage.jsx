@@ -1,6 +1,5 @@
-// src/components/ExperiencePage.jsx
-
 import React, { useState } from 'react';
+import './ExperiencePage.css'
 
 // We'll store your experience data in an array of objects
 const experienceData = [

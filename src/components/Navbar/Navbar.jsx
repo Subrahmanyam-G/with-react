@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import  './Navbar.css'
 
 function Navbar({ onNavigate }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +21,6 @@ function Navbar({ onNavigate }) {
         <div className="navbar-links">
           <button onClick={() => { onNavigate('home'); setIsOpen(false); }}>About Me</button>
           <button onClick={() => { onNavigate('concepts'); setIsOpen(false); }}>Concepts</button>
-          <button onClick={() => { onNavigate('experience'); setIsOpen(false); }}>Experience</button>
         </div>
         {/* This is the link that should move to the right */}
         <div className="navbar-login">

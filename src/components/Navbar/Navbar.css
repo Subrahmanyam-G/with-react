@@ -1,0 +1,535 @@
+/*
+  ================================================
+  FINAL CONSOLIDATED STYLESHEET
+  ================================================
+  This file includes all corrections and enhancements:
+  1. Responsive Navbar with centered menu buttons.
+  2. Highly compact footer for mobile screens.
+  3. A dynamic, modern hero button style.
+  4. General responsive layout and font size adjustments.
+*/
+
+/* === 1. GLOBAL & MAIN LAYOUT === */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+main {
+  /* Padding needed for the fixed footer on desktop */
+  padding-bottom: 160px;
+}
+
+/* === 2. NAVBAR STYLES (CORRECTED FOR MOBILE) === */
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: rgb(236, 26, 26);
+  height: 60px;
+  padding: 0 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #e7ebee;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.navbar-links button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: 0;
+  background-color: rgb(255, 110, 110);
+  color: #e7ebee;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: background-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.navbar-links button:hover {
+  background-color: rgb(255, 140, 140);
+  color: #e7ebee;
+}
+.navbar-links button:active {
+  background-color: rgb(255, 160, 160);
+}
+
+.navbar-login {
+  margin-left: auto;
+}
+
+.navbar-login button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: 0;
+  background-color: rgb(255, 110, 110);
+  color: #e7ebee;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.navbar-login button:hover {
+  background-color: rgb(255, 140, 140);
+  color: #e7ebee;
+}
+.navbar-login button:active {
+  background-color: rgb(255, 160, 160);
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* === 3. HERO SECTION STYLES === */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1082px;
+  min-height: calc(74vh - 60px);
+  margin: 2rem auto;
+  background-color: #212529;
+  color: #f8f9fa;
+  padding: 2rem;
+  gap: 2rem;
+  border-radius: 10px;
+}
+.hero-text {
+  flex: 1;
+  max-width: 600px;
+  text-align: left;
+}
+.hero-subtitle {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #adb5bd;
+  margin-bottom: 1rem;
+}
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+}
+.hero-role {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #f8f9fa;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+.highlight {
+  color: #ff007f;
+}
+.hero-description {
+  font-size: 1rem;
+  color: #ced4da;
+  line-height: 1.6;
+}
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 250px;
+}
+.hero-image {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* === 4. UPDATED HERO BUTTON (Dynamic Inset) === */
+.hero-button {
+  margin-top: 2rem;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ff007f;
+  background-color: transparent;
+  border: 2px solid #ff007f;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 0 0 #ff007f;
+}
+.hero-button:hover {
+  color: #fff;
+  background-color: #ff007f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 0, 127, 0.4);
+}
+.hero-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff007f;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
+.hero-button:hover::before {
+  transform: scaleX(1);
+}
+
+/* === 5. CONCEPTS, EXPERIENCE, & TABS STYLES === */
+.concepts-page, .experience-page {
+  max-width: 1082px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #212529;
+  color: #f8f9fa;
+  border-radius: 10px;
+}
+.concepts-page h2, .experience-page h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #fff;
+}
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #343a40;
+}
+.tabs button {
+  padding: 1rem 1.5rem;
+  border: none;
+  background: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #adb5bd;
+  transition: color 0.3s, border-bottom-color 0.3s;
+  border-bottom: 3px solid transparent;
+}
+.tabs button.active {
+  color: #ffffff;
+  border-bottom-color: #ff007f;
+}
+.tab-content {
+  animation: fadeIn 0.5s ease-in-out;
+}
+.tab-content h3 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+.concept-item {
+  margin-bottom: 2.5rem;
+}
+.concept-item h4 {
+  font-size: 1.5rem;
+  color: #ff007f;
+  margin-bottom: 0.5rem;
+}
+.concept-item p, .concept-item li {
+  font-size: 1rem;
+  color: #ced4da;
+  line-height: 1.7;
+}
+.concept-item pre {
+  margin-top: 1rem;
+  background-color: #2d2d2d;
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+.concept-item code {
+  background-color: #343a40;
+  color: #e83e8c;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+}
+.concept-item pre code {
+  background-color: transparent;
+  padding: 0;
+  color: #f8f8f2;
+}
+.concept-item ul {
+  list-style-position: inside;
+  padding-left: 10px;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.accordion {
+  width: 100%;
+}
+.accordion-item {
+  border-bottom: 1px solid #343a40;
+}
+.accordion-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.2rem;
+  color: #f8f9fa;
+  transition: background-color 0.3s;
+}
+.accordion-title:hover, .accordion-title.active {
+  background-color: #343a40;
+}
+.accordion-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+  background-color: #2c3136;
+}
+.accordion-content.open {
+  max-height: 500px;
+  padding: 1.5rem;
+}
+.accordion-content p, .accordion-content li {
+  color: #ced4da;
+  line-height: 1.7;
+}
+.accordion-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* === 6. FOOTER STYLES (CORRECTED FOR MOBILE) === */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #212529;
+  color: #adb5bd;
+  padding: 1rem;
+  border-top: 1px solid #343a40;
+}
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.footer-info, .footer-contact, .footer-social {
+  flex: 1;
+  min-width: 250px;
+}
+.footer h4 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+.footer h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #ff007f;
+}
+.footer p, .footer span {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.contact-item {
+  display: flex;
+  justify-self: center;
+  padding: auto;
+  gap: 0.5rem;
+}
+.footer-social a {
+  color: #adb5bd;
+  font-size: 1.8rem;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+.footer-social a:hover {
+  color: #ff007f;
+}
+.footer-copyright {
+  text-align: center;
+  padding-top: 0.5rem;
+  border-top: 1px solid #343a40;
+  font-size: 0.9rem;
+}
+.footer-copyright p {
+  margin: 0;
+}
+ 
+/* === 7. RESPONSIVE MEDIA QUERIES === */
+/* Mobile Navbar Fixes */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .navbar-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Changed from center to flex-start */
+    position: fixed;
+    top: 0; /* Changed from 60px to 0 */
+    right: -100%; /* Changed from left: -100% */
+    width: 80%; /* Confined to a smaller width */
+    max-width: 300px; /* Added max-width */
+    height: 100vh; /* Takes up the full viewport height */
+    background-color: rgba(236, 26, 26, 0.95); /* Semi-transparent red */
+    padding: 2rem 0;
+    transition: right 0.3s ease-in-out; /* Changed from left */
+    z-index: 999; /* Lower z-index than the navbar itself */
+  }
+  .navbar-menu.open {
+    right: 0; /* Changed from left: 0 */
+  }
+  .navbar-links {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-top: 4rem; /* Added margin to push content down from the top */
+  }
+  .navbar-login {
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+  .navbar-links button,
+  .navbar-login button {
+    width: 90%;
+    margin: 0.5rem auto;
+    background-color: rgb(255, 110, 110);
+    color: #e7ebee;
+  }
+  .navbar-links button:active,
+  .navbar-login button:active {
+    background-color: rgb(255, 160, 160);
+  }
+  .navbar {
+    padding: 0 1rem;
+    justify-content: space-between;
+  }
+}
+/* General Mobile Layout Fixes */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-role {
+    font-size: 1.8rem;
+  }
+  .hero-description {
+    font-size: 0.95rem;
+  }
+  .concepts-page h2, .experience-page h2 {
+    font-size: 2rem;
+  }
+  .tab-content h3 {
+    font-size: 1.8rem;
+  }
+  .concept-item h4 {
+    font-size: 1.2rem;
+  }
+  .concept-item p, .concept-item li {
+    font-size: 0.9rem;
+  }
+}
+/* Footer Fix for iPad and Mobile */
+@media (max-width: 856px) and (min-width: 769px) {
+  .footer {
+    position: static;
+  }
+  main {
+    padding-bottom: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .footer {
+    position: static;
+    padding: 0;
+  }
+  main {
+    padding-bottom: 2rem;
+  }
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+    padding: 0;
+  }
+  .footer h4 {
+    margin: 0;
+    padding-bottom: 0.25rem;
+  }
+  .footer h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+  }
+  .footer-info, .footer-contact, .footer-social {
+    min-width: 100%;
+    padding: 0.5rem 0;
+    margin: 0;
+  }
+  .footer p, .footer span {
+    margin: 0;
+  }
+  .footer-copyright {
+    padding: 0.5rem 0;
+    margin: 0;
+    font-size: 0.8rem;
+  }
+  .footer-social a {
+    font-size: 1.5rem;
+  }
+  .footer-copyright p {
+    margin: 0;
+  }
+}

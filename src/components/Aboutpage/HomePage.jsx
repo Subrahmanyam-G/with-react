@@ -1,6 +1,6 @@
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
-import profileImage from '../assets/profile.jpg';
+import './HomePage.css'
 
 // THE FIX IS HERE: Change (onNavigate) to ({ onNavigate })
 function HomePage({ onNavigate }) {
