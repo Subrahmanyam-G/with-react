@@ -1,8 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { FaReact, FaCode, FaBolt } from "react-icons/fa";
 import "./Welcome.css";
 
-function Welcome({ onLoginClick }) {
+function Welcome() {
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
+
   return (
     <div className="welcome-container">
       <div className="welcome-icon">
@@ -31,7 +38,7 @@ function Welcome({ onLoginClick }) {
         </div>
       </div>
 
-      <button className="welcome-button" onClick={onLoginClick}>
+      <button className="welcome-button" onClick={handleLoginClick}>
         🚀 Start Learning
       </button>
     </div>
