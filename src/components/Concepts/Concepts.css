@@ -1,3 +1,57 @@
+/* === Concepts Page Container === */
+.concepts-page {
+  max-width: 1082px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #212529;
+  color: #f8f9fa;
+  border-radius: 10px;
+}
+
+/* === Page Title === */
+.concepts-page h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+/* === Tabs Navigation === */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #343a40;
+}
+
+.tabs button {
+  padding: 1rem 1.5rem;
+  border: none;
+  background: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #adb5bd;
+  transition: color 0.3s, border-bottom-color 0.3s;
+  border-bottom: 3px solid transparent;
+}
+
+.tabs button.active {
+  color: #ffffff;
+  border-bottom-color: #ff007f;
+}
+
+/* === Tab Content Animation === */
+.tab-content {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* === Topic Items Container === */
 .topics-container {
   background: #b6171f;
   padding: 20px;

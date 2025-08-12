@@ -1,5 +1,5 @@
 import React from "react";
-import "./Concepts.css";
+import "../Concepts.css";
 import { FaHtml5 } from "react-icons/fa";
 
 function HtmlConcepts() {

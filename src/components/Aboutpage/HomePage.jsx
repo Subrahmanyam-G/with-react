@@ -1,9 +1,11 @@
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
+import { useNavigate } from 'react-router-dom'; // import useNavigate
 import './HomePage.css'
 
-// THE FIX IS HERE: Change (onNavigate) to ({ onNavigate })
-function HomePage({ onNavigate }) {
+function HomePage() {
+  const navigate = useNavigate(); // get navigate function
+
   return (
     <section className="hero-section">
       <div className="hero-text">
@@ -27,8 +29,7 @@ function HomePage({ onNavigate }) {
         </p>
         <button
           className="hero-button"
-          // This onClick will now work correctly because `onNavigate` is the function.
-          onClick={() => onNavigate('experience')}
+          onClick={() => navigate('/experience')}  // navigate to /experience route
         >
           More About Me
         </button>

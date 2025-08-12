@@ -113,19 +113,14 @@
 .hero-button:hover::before {
   transform: translateX(0); /* Slide the background into view on hover */
 }
-@media (max-width: 1080px) {
-  .hero-section {
-    margin: 1rem 1rem;
-  }
-  
-}
+
 
 @media (max-width: 700px) {
   .hero-section {
     flex-direction: column;
     text-align: center;
     padding: 2rem 1.5rem;
-    margin: 1rem 1rem;
+    margin: 1rem 0rem;
   }
   .hero-text {
     text-align: center;

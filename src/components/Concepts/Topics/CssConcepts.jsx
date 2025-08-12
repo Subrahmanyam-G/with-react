@@ -1,5 +1,5 @@
 import React from "react";
-import "./Concepts.css";
+import "../Concepts.css";
 import { FaCss3Alt } from "react-icons/fa";
 
 function CssConcepts() {

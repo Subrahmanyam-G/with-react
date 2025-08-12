@@ -1,5 +1,5 @@
 import React from "react";
-import "./Concepts.css";
+import "../Concepts.css";
 import { FaReact } from "react-icons/fa";
 
 function ReactTopics() {

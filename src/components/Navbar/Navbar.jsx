@@ -1,36 +1,74 @@
-// src/components/Navbar.jsx
+import React, { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import "./Navbar.css";
+import Dialog from './LoginPage/Dialog.jsx'; // Import the new Dialog component
 
-import React, { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import  './Navbar.css'
+function Navbar({ user, onLogout }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [showLogoutDialog, setShowLogoutDialog] = useState(false); // New state for dialog
+  const navigate = useNavigate();
 
-function Navbar({ onNavigate }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
+  const handleLogout = () => {
+    onLogout();
+    setShowLogoutDialog(false); // Close dialog
+    navigate("/"); // redirect to welcome page
+  };
+
+  const openLogoutDialog = () => {
+    setShowLogoutDialog(true);
+  };
+
+  const closeLogoutDialog = () => {
+    setShowLogoutDialog(false);
   };
 
   return (
     <nav className="navbar">
-      <h1 className="navbar-brand">React Masterclass</h1>
+      {/* Brand Logo */}
+      <div className="navbar-brand">
+        <Link to="/" onClick={() => setMenuOpen(false)}>Reactify Hub</Link>
+      </div>
 
-      {/* This is the main menu container */}
-      <div className={isOpen ? 'navbar-menu open' : 'navbar-menu'}>
-        {/* These are the links that should stay on the left */}
+      {/* Mobile menu icon */}
+      <div className="hamburger" onClick={toggleMenu}>
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </div>
+
+      {/* Menu items */}
+      <div className={`navbar-menu ${menuOpen ? "open" : ""}`}>
         <div className="navbar-links">
-          <button onClick={() => { onNavigate('home'); setIsOpen(false); }}>About Me</button>
-          <button onClick={() => { onNavigate('concepts'); setIsOpen(false); }}>Concepts</button>
+          {user && (
+            <>
+              <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+              <Link to="/experience" onClick={() => setMenuOpen(false)}>Experience</Link>
+              <Link to="/concepts" onClick={() => setMenuOpen(false)}>Concepts</Link>
+            </>
+          )}
         </div>
-        {/* This is the link that should move to the right */}
-        <div className="navbar-login">
-          <button onClick={() => alert('Login functionality not implemented.')}>Login</button>
-        </div>
-      </div>
 
-      <div className="hamburger" onClick={handleToggle}>
-        {isOpen ? <FaTimes /> : <FaBars />}
+        {/* Login/Logout aligned to right */}
+        <div className="navbar-login" style={{ marginLeft: "auto" }}>
+          {user ? (
+            <>
+              <span>Hi, {user.name}</span>
+              <button onClick={openLogoutDialog}>Logout</button>
+            </>
+          ) : (
+            <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
+          )}
+        </div>
       </div>
+      
+      {showLogoutDialog && (
+        <Dialog
+          message="Are you sure you want to log out?"
+          onConfirm={handleLogout}
+          onCancel={closeLogoutDialog}
+        />
+      )}
     </nav>
   );
 }

@@ -1,0 +1,99 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.login-card {
+    background-color: #212529;
+    color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 4px 12px rgba(235, 230, 230, 0.3);
+}
+
+.login-card h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #e9e3e6;
+}
+
+.login-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.login-card label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #f1edef;
+    margin-bottom: 0;    /* No gap between label & input */
+    text-align: left;
+}
+
+/* Default label color */
+.label-default {
+    color: #f1edef;
+}
+
+/* Black labels for Gender & Date */
+.label-black {
+    color: #000;
+}
+
+.login-card input,
+.login-card select {
+    padding: 0.6rem;
+    border: 1px solid #343a40;
+    border-radius: 8px;
+    background-color: white;
+    color: #000;
+}
+
+.login-card input:focus,
+.login-card select:focus {
+    outline: none;
+    border-color: #aa170d;
+    box-shadow: 0 0 5px #aa170d;
+}
+
+.login-card input::placeholder,
+.login-card select option {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* Error message styling */
+
+.error-message {
+    font-size: 0.8rem;
+    color: red !important;
+    text-align: left;       /* Align to start/left */
+    display: block;         /* Ensure it stays full-width under the input */
+    margin-top: 2px;        /* Small gap from input */
+    margin-bottom: 4px;     /* Small gap before next field */
+}
+
+.login-card button {
+    margin-top: 32px;
+    padding: 0.8rem;
+    background-color:rgb(236, 26, 26);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.login-card button:hover:not(:disabled) {
+    background-color: #b6171f;
+}
+
+.login-card button:disabled {
+    background-color: #888;
+    cursor: not-allowed;
+}

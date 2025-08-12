@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import HtmlConcepts from './HtmlConcepts';
-import CssConcepts from './CssConcepts';
-import JsConcepts from './JsConcepts';
-import ReactConcepts from './ReactConcepts';
+import HtmlConcepts from './Topics/HtmlConcepts';
+import CssConcepts from './Topics/CssConcepts';
+import JsConcepts from './Topics/JsConcepts';
+import ReactConcepts from './Topics/ReactConcepts';
 import "./Concepts.css";
 
 function Concepts() {
