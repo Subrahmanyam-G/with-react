@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Login.css";
 
 // ⚠️ REPLACE WITH YOUR DEPLOYED BACKEND URL ⚠️
-const API_BASE_URL = "http://localhost:3001"; // Or your deployed URL like https://my-backend-app.herokuapp.com
+const API_BASE_URL = "https://my-auth-backend-gpp5.onrender.com"; // Or your deployed URL like https://my-backend-app.herokuapp.com
 
 function Login({ onLoginSuccess }) {
   const [isSignUp, setIsSignUp] = useState(false);
