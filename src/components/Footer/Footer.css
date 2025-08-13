@@ -174,4 +174,8 @@
     justify-content: center;
     margin-top: 4px;
   }
+  a{
+    justify-content: center;
+    margin-top: 5px;
+  }
 }

@@ -1,99 +1,189 @@
+/* Overall page and container styling */
 .login-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
 
-.login-card {
-    background-color: #212529;
-    color: #f8f9fa;
-    padding: 2rem;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 450px;
-    box-shadow: 0 4px 12px rgba(235, 230, 230, 0.3);
+.black-card {
+  background-color: #212529;
+  color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 4px 12px rgba(235, 230, 230, 0.3);
+  min-height: auto;
 }
 
-.login-card h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #e9e3e6;
+/* Header section for the "My Journey" title */
+.journey-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: white;
 }
 
-.login-card form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
+.journey-title-container h1 {
+  margin: 0px;
+  font-size: 40px;
 }
 
-.login-card label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #f1edef;
-    margin-bottom: 0;    /* No gap between label & input */
-    text-align: left;
+.divider-line {
+  width: 100%;
+  height: 2px;
+  background-color: #343a40;
+  margin-top: 10px;
+  border-radius: 2px;
 }
 
-/* Default label color */
+/* Heading for the Sign In/Sign Up form */
+.login-heading {
+  text-align: center;
+  color: #e9e3e6;
+  font-size: 1.5rem;
+  margin: 10px auto;
+}
+
+/* Divider for the login heading */
+.login-divider-line {
+  width: 80%;
+  height: 2px;
+  background-color: #b6171f;
+  margin: 0 auto 2rem;
+  border-radius: 2px;
+}
+
+/* Red card for the form content */
+.red-card {
+  background-color: #b6171f;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Form element styling within the red card */
+.red-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.red-card label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #f1edef;
+  margin-bottom: 0;
+  text-align: left;
+}
+
 .label-default {
-    color: #f1edef;
+  color: #f1edef;
 }
 
-/* Black labels for Gender & Date */
-.label-black {
-    color: #000;
+.red-card input,
+.red-card select {
+  padding: 0.6rem;
+  border: 1px solid #343a40;
+  border-radius: 8px;
+  background-color: white;
+  color: #000;
 }
 
-.login-card input,
-.login-card select {
-    padding: 0.6rem;
-    border: 1px solid #343a40;
-    border-radius: 8px;
-    background-color: white;
-    color: #000;
+.red-card input:focus,
+.red-card select:focus {
+  outline: none;
+  border-color: #aa170d;
+  box-shadow: 0 0 5px #aa170d;
 }
 
-.login-card input:focus,
-.login-card select:focus {
-    outline: none;
-    border-color: #aa170d;
-    box-shadow: 0 0 5px #aa170d;
+.red-card input::placeholder,
+.red-card select option {
+  color: rgba(0, 0, 0, 0.6);
 }
 
-.login-card input::placeholder,
-.login-card select option {
-    color: rgba(0, 0, 0, 0.6);
-}
-
-/* Error message styling */
-
+/* Error and warning messages */
 .error-message {
+  font-size: 0.8rem;
+  color: rgb(155, 150, 150);
+  cursor: pointer;
+  font-weight: bold;
+  text-align: left;
+  display: block;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  border-radius: 4px;
+}
+
+.form-error-message {
     font-size: 0.8rem;
-    color: red !important;
-    text-align: left;       /* Align to start/left */
-    display: block;         /* Ensure it stays full-width under the input */
-    margin-top: 2px;        /* Small gap from input */
-    margin-bottom: 4px;     /* Small gap before next field */
+    color: rgb(155, 150, 150);
+  cursor: pointer;
+  font-weight: bold;
+    text-align: left;
+    display: block;
+    margin-top: 4px;
+    
+  margin-bottom: 0px;
+    border-radius: 4px;
 }
 
-.login-card button {
-    margin-top: 32px;
-    padding: 0.8rem;
-    background-color:rgb(236, 26, 26);
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+/* Button styling */
+.red-card button {
+  margin-top: 32px;
+  padding: 0.8rem;
+  background-color: #212529;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.login-card button:hover:not(:disabled) {
-    background-color: #b6171f;
+.red-card button:hover:not(:disabled) {
+  background-color: #343a40;
 }
 
-.login-card button:disabled {
-    background-color: #888;
-    cursor: not-allowed;
+.red-card button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+/* Switch mode link */
+.switch-mode-text {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #f1edef;
+}
+
+.switch-mode-link {
+  color: #212529;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.switch-mode-link:hover {
+  text-decoration: none;
+}
+
+/* Media Queries for responsiveness */
+
+
+@media (max-width: 450px) {
+  .black-card{
+    padding: 15px;
+  }
+  .login-page{
+    padding: 0px;
+  }
+  .login-heading{
+    margin: 5px auto;
+  }
 }

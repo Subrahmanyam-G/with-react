@@ -1,67 +1,24 @@
 {
   "users": [
     {
-      "id": "d7f3",
-      "name": "Durga Prasad",
-      "number": "23565433333333333",
-      "email": "fsahyd@gmail.com",
-      "gender": "female",
-      "dateOfBirth": "2025-08-07",
-      "createdAt": "2025-08-12T15:41:45.751Z"
-    },
-    {
-      "id": "859c",
-      "name": "www",
-      "number": "3333333333",
-      "email": "fsahyd@gmail.com",
-      "gender": "male",
-      "dateOfBirth": "2025-08-08",
-      "createdAt": "2025-08-12T16:34:34.758Z"
-    },
-    {
-      "id": "9d4f",
-      "name": "Durga Prasad",
-      "number": "444444444444",
-      "email": "fsahyd@gmail.com",
-      "gender": "male",
-      "dateOfBirth": "2025-07-31",
-      "createdAt": "2025-08-12T16:44:50.405Z"
-    },
-    {
-      "id": "e76f",
-      "name": "subbu",
-      "number": "9191919191",
+      "id": "s4yb",
+      "name": "Subbu",
       "email": "Subbu@gmail.com",
+      "password": "Subbu@2",
+      "number": "8785847346",
       "gender": "male",
-      "dateOfBirth": "1998-08-17",
-      "createdAt": "2025-08-12T17:32:21.627Z"
+      "dateOfBirth": "0014-12-14",
+      "createdAt": "2025-08-13T15:09:13.575Z"
     },
     {
-      "id": "7e09",
-      "name": "Durga Prasad",
-      "number": "1234567890",
-      "email": "fsahyd@gmail.com",
-      "gender": "female",
-      "dateOfBirth": "2025-08-01",
-      "createdAt": "2025-08-12T17:36:16.154Z"
-    },
-    {
-      "id": "995f",
-      "name": "Durga Prasad",
-      "number": "1234567890",
-      "email": "fsahyd@gmail.com",
-      "gender": "male",
-      "dateOfBirth": "0011-02-12",
-      "createdAt": "2025-08-12T17:38:05.433Z"
-    },
-    {
-      "id": "81a3",
+      "id": "dxkr",
       "name": "Lucky",
-      "number": "6787678776",
       "email": "Lucky@gmail.com",
-      "gender": "female",
-      "dateOfBirth": "0222-12-12",
-      "createdAt": "2025-08-12T17:40:17.777Z"
+      "password": "Subbu@2",
+      "number": "1234567890",
+      "gender": "male",
+      "dateOfBirth": "0011-12-21",
+      "createdAt": "2025-08-13T15:22:29.307Z"
     }
   ]
 }

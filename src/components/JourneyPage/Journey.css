@@ -1,7 +1,6 @@
 /* Styling for the Journey component */
 .topics-container {
-  padding: 0px
-   10px; /* Reduced padding to make the boxes smaller */
+  padding: 0px 10px; /* Reduced padding to make the boxes smaller */
   border-radius: 12px;
   margin-bottom: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -132,4 +131,42 @@
     color: #e2e8f0;
   }
   
+}
+@media (min-width: 300px) and (max-width: 450px) {
+  .journey-title-container h1 {
+    font-size: 23px; /* Reduced font size for the main title */
+  }
+
+  .topics-title {
+    font-size: 10px; /* Reduced font size for the red card titles */
+  }
+
+  .topic-item {
+    padding: 10px 12px; /* Adjusted padding for smaller screens */
+  }
+
+  .topic-icon {
+    font-size: 16px; /* Adjusted icon size to match smaller text */
+  }
+
+  .topic-text {
+    font-size: 12px; /* Reduced font size for the list items */
+  }
+  .black-card {
+   padding:10px 0px;
+  }
+  
+}
+@media (min-width: 450px) and (max-width: 768px) {
+  .journey-title-container h1 {
+    font-size: 30px; /* Reduced font size for the main title */
+  }
+  .black-card {
+    max-width: 968px; /* Reduced the max-width of the main card */
+    margin: 1rem auto;
+    background-color: #212529;
+    padding: 1rem;
+    border-radius: 10px;
+    min-height: calc(74vh - 60px);
+  }
 }
