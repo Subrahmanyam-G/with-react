@@ -158,7 +158,7 @@ function Login({ onLoginSuccess }) {
 
   return (
     <div className="login-page">
-      <div className="black-card login-card-container">
+      <div className="Login-black-card login-card-container">
         <h2 className="login-heading">{isSignUp ? "🚀✍️ Sign Up" : "🚪🏃 Sign In"}</h2>
         <div className="login-divider-line"></div>
 

@@ -19,6 +19,16 @@
       "gender": "male",
       "dateOfBirth": "0011-12-21",
       "createdAt": "2025-08-13T15:22:29.307Z"
+    },
+    {
+      "id": "nrfx",
+      "name": "Durga Prasad",
+      "email": "Durga@hmail.com",
+      "password": "Durga@22",
+      "number": "8121314152",
+      "gender": "male",
+      "dateOfBirth": "0454-06-05",
+      "createdAt": "2025-08-13T16:38:58.200Z"
     }
   ]
 }

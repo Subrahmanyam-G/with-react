@@ -46,7 +46,7 @@ const Journey = () => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     return (
-      <div className="topics-container red-card">
+      <div className="topics-container Login-red-card">
         <div className="topics-title expandable-header" onClick={() => setIsExpanded(!isExpanded)}>
           <h2>{icon} {title}</h2>
           <FaChevronDown className={`chevron-icon ${isExpanded ? 'expanded' : ''}`} />
@@ -66,7 +66,7 @@ const Journey = () => {
     <div className="black-card">
       <div className="journey-title-container">
         <h1 className="topics-title">🚀 My Journey</h1>
-        <div className="divider-line"></div>
+        <div className="Login-divider-line"></div>
       </div>
       <div className="content-wrapper">
         {/* Render each section with the new ExpandableSection component */}
