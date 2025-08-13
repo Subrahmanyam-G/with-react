@@ -156,7 +156,7 @@
 
 /* Switch mode link */
 .switch-mode-text {
-  margin-top: 1rem;
+  margin: 10px 0px;
   text-align: center;
   font-size: 0.9rem;
   color: #f1edef;

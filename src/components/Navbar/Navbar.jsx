@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import Dialog from './LoginPage/Dialog.jsx'; // Import the new Dialog component
+import Dialog from './LoginPage/Dialog.jsx';
 
 function Navbar({ user, onLogout }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showLogoutDialog, setShowLogoutDialog] = useState(false); // New state for dialog
+  const [showLogoutDialog, setShowLogoutDialog] = useState(false);
   const navigate = useNavigate();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const handleLogout = () => {
     onLogout();
-    setShowLogoutDialog(false); // Close dialog
-    navigate("/"); // redirect to welcome page
+    setShowLogoutDialog(false);
+    navigate("/");
   };
 
   const openLogoutDialog = () => {
@@ -27,17 +27,14 @@ function Navbar({ user, onLogout }) {
 
   return (
     <nav className="navbar">
-      {/* Brand Logo */}
       <div className="navbar-brand">
         <Link to="/" onClick={() => setMenuOpen(false)}>Reactify Hub</Link>
       </div>
 
-      {/* Mobile menu icon */}
       <div className="hamburger" onClick={toggleMenu}>
         {menuOpen ? <FaTimes /> : <FaBars />}
       </div>
 
-      {/* Menu items */}
       <div className={`navbar-menu ${menuOpen ? "open" : ""}`}>
         <div className="navbar-links">
           {user && (
@@ -49,11 +46,10 @@ function Navbar({ user, onLogout }) {
           )}
         </div>
 
-        {/* Login/Logout aligned to right */}
         <div className="navbar-login" style={{ marginLeft: "auto" }}>
           {user ? (
             <>
-              <span>Hi, {user.name}</span>
+              <span className="navbar-user">Hi, <strong><em>{user.name}</em></strong></span>
               <button onClick={openLogoutDialog}>Logout</button>
             </>
           ) : (
@@ -61,7 +57,7 @@ function Navbar({ user, onLogout }) {
           )}
         </div>
       </div>
-      
+
       {showLogoutDialog && (
         <Dialog
           message="Are you sure you want to log out?"
