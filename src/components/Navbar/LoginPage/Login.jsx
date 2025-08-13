@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./Login.css";
 
+// ⚠️ REPLACE WITH YOUR DEPLOYED BACKEND URL ⚠️
+const API_BASE_URL = "http://localhost:3001"; // Or your deployed URL like https://my-backend-app.herokuapp.com
+
 function Login({ onLoginSuccess }) {
   const [isSignUp, setIsSignUp] = useState(false);
-  const [usersDb, setUsersDb] = useState([]);
-
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,20 +19,6 @@ function Login({ onLoginSuccess }) {
 
   const [errors, setErrors] = useState({});
   const [formError, setFormError] = useState("");
-
-  // 🔁 Load users from json-server
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  const fetchUsers = async () => {
-    try {
-      const res = await axios.get("http://localhost:3001/users");
-      setUsersDb(res.data);
-    } catch (err) {
-      console.error("Error fetching users:", err);
-    }
-  };
 
   const validateField = (name, value) => {
     let error = "";
@@ -97,39 +85,31 @@ function Login({ onLoginSuccess }) {
     }
 
     try {
-      const res = await axios.get("http://localhost:3001/users");
-      const users = res.data;
-      const userMatch = users.find((u) => u.email === formData.email);
-
       if (isSignUp) {
-        if (userMatch) {
-          setFormError("*Email already exists. Please sign in.");
-          return;
-        }
-
-        const newUser = {
-          ...formData,
-          id: Math.random().toString(36).substring(2, 6),
-          createdAt: new Date().toISOString(),
-        };
-
-        await axios.post("http://localhost:3001/users", newUser);
-        setUsersDb((prev) => [...prev, newUser]);
-        console.log("✅ New user signed up:", newUser.email);
-        onLoginSuccess(newUser);
+        const res = await axios.post(`${API_BASE_URL}/signup`, formData);
+        console.log("✅ New user signed up:", res.data.email);
+        onLoginSuccess(res.data);
       } else {
-        if (!userMatch) {
-          setFormError("*Email not found. Please sign up.");
-        } else if (userMatch.password !== formData.password) {
-          setFormError("*Incorrect password.");
-        } else {
-          console.log("✅ Logged in:", userMatch.email);
-          onLoginSuccess(userMatch);
-        }
+        const res = await axios.post(`${API_BASE_URL}/signin`, {
+          email: formData.email,
+          password: formData.password,
+        });
+        console.log("✅ Logged in:", res.data.email);
+        onLoginSuccess(res.data);
       }
     } catch (err) {
+      if (err.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        setFormError(err.response.data.message || "*Something went wrong.");
+      } else if (err.request) {
+        // The request was made but no response was received
+        setFormError("*No response from server. Check your connection.");
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        setFormError("*Error: Could not send request.");
+      }
       console.error("Login/Signup error:", err);
-      setFormError("*Something went wrong. Try later.");
     }
   };
 
