@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JavaScript Basics – Reactify Hub (Lecture Notes) — Subbu</title>
+  <style>
+   :root {
+  --bg: #212529;         /* Match Concepts.css background */
+  --panel: #2a2f36;      /* Slightly lighter for cards */
+  --ink: #f8f9fa;        /* Text color */
+  --muted: #adb5bd;
+  --accent: #ff007f;     /* Match active tab accent */
+  --accent2: #6ea8fe;
+  --code: #1c1f24;       /* Code block background */
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 1080px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
+
+/* Cover */
+.cover {
+  background: linear-gradient(135deg, rgba(255, 0, 127, 0.15), rgba(110,168,254,.15));
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+h1.title { font-size: 2.2rem; margin: .5em 0; }
+.subtitle { color: var(--muted); }
+
+/* Table of contents */
+nav.toc {
+  background: #2d3239;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255,255,255,.08);
+}
+nav.toc h2 { font-size: 1.1rem; color: var(--muted); margin-bottom: .5rem; }
+nav.toc a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: .4rem 0;
+}
+nav.toc a:hover { color: var(--accent); }
+
+/* Sections */
+section {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin: 1.2rem 0;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: var(--shadow);
+  overflow-wrap: break-word;   /* Prevent text/code overflow */
+}
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: .6rem;
+  border-left: 4px solid var(--accent);
+  padding-left: .6rem;
+}
+h3 { font-size: 1.1rem; margin-top: 1rem; }
+
+/* Code blocks */
+pre {
+  background: var(--code);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: .8rem 0;
+}
+code {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  color: #ffd966;
+}
+
+/* Notes and steps */
+.step {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  padding: .8rem;
+  border-radius: 8px;
+  margin: .6rem 0;
+}
+.note {
+  background: rgba(255,0,127,.08);
+  border: 1px dashed var(--accent);
+  padding: .8rem;
+  border-radius: 8px;
+  margin: .8rem 0;
+  color: var(--ink);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+th, td {
+  border: 1px solid rgba(255,255,255,.1);
+  padding: .6rem;
+  text-align: left;
+}
+th { background: rgba(255,255,255,.06); }
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .container { padding: 1rem; }
+  h1.title { font-size: 1.6rem; }
+  section { padding: 1rem; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="cover" id="cover">
+      <div class="kicker">Reactify Hub — Lecture Notes</div>
+      <h1 class="title">JavaScript Basics</h1>
+      <p class="subtitle">Step-by-step explanations with examples and outputs</p>
+      <span class="badge">By <strong>Subbu</strong> • Reactify Hub</span>
+      <div class="credits">Updated and formatted for clarity</div>
+    </header>
+
+    <nav class="toc">
+      <h2>Table of Contents</h2>
+      <a href="#intro">Introduction</a>
+      <a href="#script-tag">The &lt;script&gt; Tag</a>
+      <a href="#output">Output in JavaScript</a>
+      <a href="#comments">Comments</a>
+      <a href="#variables">Variables &amp; Data Types</a>
+      <a href="#popups">Popup Boxes</a>
+      <a href="#operators">Operators</a>
+      <a href="#functions">Functions</a>
+      <a href="#arrays">Arrays</a>
+      <a href="#control">Control Statements</a>
+      <a href="#date">Date</a>
+      <a href="#objects">Objects</a>
+      <a href="#events">Events</a>
+      <a href="#errors">Error Handling</a>
+    </nav>
+
+    <section id="intro">
+      <h2>Introduction</h2>
+      <div class="step">
+        JavaScript is a <strong>scripting language</strong>. A scripting language is a lightweight programming language.
+      </div>
+      <ul>
+        <li>JavaScript code can be inserted into <strong>HTML pages</strong>.</li>
+        <li>It can be executed by all modern web browsers.</li>
+      </ul>
+    </section>
+
+    <section id="script-tag">
+      <h2>The <code>&lt;script&gt;</code> Tag</h2>
+      <div class="step"><strong>Step 1:</strong> Add a script tag inside your HTML.</div>
+      <pre><code>&lt;script type="text/javascript"&gt;
+// JavaScript code here
+&lt;/script&gt;</code></pre>
+      <div class="note">✅ You can place scripts in both the <span class="kbd">head</span> and <span class="kbd">body</span> sections.</div>
+    </section>
+
+    <section id="output">
+      <h2>Output in JavaScript</h2>
+
+      <h3>1) <code>document.write()</code></h3>
+      <p>Writes text directly into the page body.</p>
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    document.write("Hello... Welcome to JavaScript Class from Reactify Hub");
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <h3>2) <code>innerHTML</code></h3>
+      <p>Inserts text inside an HTML element.</p>
+      <pre><code>&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1 id="special"&gt;&lt;/h1&gt;
+  &lt;script type="text/javascript"&gt;
+    document.getElementById("special").innerHTML = "Welcome to JS Class from Reactify Hub";
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <h3>3) <code>window.alert()</code></h3>
+      <p>Displays an alert box with a message.</p>
+      <pre><code>&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;script type="text/javascript"&gt;
+    window.alert("Welcome to JS from Reactify Hub");
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section id="comments">
+      <h2>Comments</h2>
+      <div class="grid">
+        <div>
+          <h3>Single-line</h3>
+          <pre><code>// This is a comment
+// document.write("Hello");</code></pre>
+        </div>
+        <div>
+          <h3>Multi-line</h3>
+          <pre><code>/* This is a multi-line comment
+   It won’t be executed */</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="variables">
+      <h2>Variables &amp; Data Types</h2>
+      <p>Variables are containers for data values. Declare using <code>var</code>, <code>let</code>, or <code>const</code>.</p>
+      <pre><code>var a = 2;               // Number
+var b = "Reactify Hub";  // String
+var c = true;            // Boolean
+var d = new Array();     // Array</code></pre>
+      <p>JavaScript is <em>dynamically typed</em> (type is decided at runtime).</p>
+      <ul>
+        <li>Number, String, Boolean, Object, Array, Undefined, Null</li>
+      </ul>
+      <pre><code>var length = 16;                              // Number
+var lastName = "Johnson";                     // String
+var x = { firstName: "John", lastName: "Doe"}; // Object
+var c = true;                                 // Boolean
+var d = new Array(1,2,3);                     // Array</code></pre>
+    </section>
+
+    <section id="popups">
+      <h2>Popup Boxes</h2>
+      <h3>1) Alert</h3>
+      <pre><code>window.alert("Welcome to JS alert box from Reactify Hub");</code></pre>
+      <h3>2) Confirm</h3>
+      <pre><code>window.confirm("Are you sure to delete this file?");</code></pre>
+      <h3>3) Prompt</h3>
+      <pre><code>var name = window.prompt("Please enter your name");
+document.write("Hello " + name + ", Welcome to Reactify Hub channel");</code></pre>
+    </section>
+
+    <section id="operators">
+      <h2>Operators</h2>
+      <h3>1) Arithmetic</h3>
+      <table>
+        <tr><th>Operator</th><th>Description</th></tr>
+        <tr><td>+</td><td>Addition</td></tr>
+        <tr><td>-</td><td>Subtraction</td></tr>
+        <tr><td>*</td><td>Multiplication</td></tr>
+        <tr><td>**</td><td>Exponentiation</td></tr>
+        <tr><td>/</td><td>Division</td></tr>
+        <tr><td>%</td><td>Modulus</td></tr>
+        <tr><td>++</td><td>Increment</td></tr>
+        <tr><td>--</td><td>Decrement</td></tr>
+      </table>
+      <pre><code>var a = 10, b = 5;
+document.write("a+b = " + (a+b));</code></pre>
+
+      <h3>2) Assignment</h3>
+      <pre><code>// =, +=, -=, *=, /=
+a += b; // same as a = a + b</code></pre>
+
+      <h3>3) Comparison</h3>
+      <table>
+        <tr><th>Operator</th><th>Description</th></tr>
+        <tr><td>==</td><td>Equal to</td></tr>
+        <tr><td>===</td><td>Equal value and type</td></tr>
+        <tr><td>!=</td><td>Not equal</td></tr>
+        <tr><td>!==</td><td>Not equal value or type</td></tr>
+        <tr><td>&gt;</td><td>Greater than</td></tr>
+        <tr><td>&lt;</td><td>Less than</td></tr>
+        <tr><td>&gt;=</td><td>Greater than or equal to</td></tr>
+        <tr><td>&lt;=</td><td>Less than or equal to</td></tr>
+        <tr><td>?:</td><td>Ternary operator</td></tr>
+      </table>
+
+      <h3>4) Logical</h3>
+      <table>
+        <tr><th>Operator</th><th>Description</th><th>Example</th></tr>
+        <tr><td>&amp;&amp;</td><td>AND</td><td>(x &lt; 10 &amp;&amp; y &gt; 1)</td></tr>
+        <tr><td>||</td><td>OR</td><td>(x == 5 || y == 5)</td></tr>
+        <tr><td>!</td><td>NOT</td><td>!(x == y)</td></tr>
+      </table>
+
+      <h3>5) Bitwise (32-bit)</h3>
+      <table>
+        <tr><th>Operator</th><th>Name</th><th>Example</th><th>Result</th></tr>
+        <tr><td>&amp;</td><td>AND</td><td>5 &amp; 1</td><td>1</td></tr>
+        <tr><td>|</td><td>OR</td><td>5 | 1</td><td>5</td></tr>
+        <tr><td>~</td><td>NOT</td><td>~5</td><td>-6</td></tr>
+        <tr><td>^</td><td>XOR</td><td>5 ^ 1</td><td>4</td></tr>
+        <tr><td>&lt;&lt;</td><td>Left Shift</td><td>5 &lt;&lt; 1</td><td>10</td></tr>
+        <tr><td>&gt;&gt;</td><td>Right Shift</td><td>5 &gt;&gt; 1</td><td>2</td></tr>
+        <tr><td>&gt;&gt;&gt;</td><td>Zero-fill Right Shift</td><td>5 &gt;&gt;&gt; 1</td><td>2</td></tr>
+      </table>
+
+      <h3>6) Conditional (Ternary)</h3>
+      <pre><code>var age = 20;
+var result = (age &gt;= 18) ? "Adult" : "Minor";</code></pre>
+    </section>
+
+    <section id="functions">
+      <h2>Functions</h2>
+      <p>A function is a reusable block of code that can be called from anywhere in the program.</p>
+      <ul>
+        <li>Saves time by avoiding repetition.</li>
+        <li>Lets you run code in response to events/actions.</li>
+      </ul>
+      <pre><code>// Declaration
+function functionName(optionalParameters){
+  // function code
+}
+
+// Call
+functionName(/* values if any */);</code></pre>
+
+      <div class="grid">
+        <div>
+          <h3>Example: Call Immediately</h3>
+          <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    function f() {
+      window.alert("Hello from Reactify Hub");
+    }
+    f();
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <div>
+          <h3>Example: Call via Event</h3>
+          <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    function f() {
+      window.alert("Button Clicked....Hello from Reactify Hub");
+    }
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;input type="button" value="Click me" onclick="f()" /&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="arrays">
+      <h2>Arrays</h2>
+      <p>Arrays store multiple values in a single variable.</p>
+      <pre><code>var values = new Array(10,20,30);
+// Access by index starting at 0
+// values[0] === 10</code></pre>
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    var values = new Array(10,20,30,40,50);
+    document.write("element at index 2 is: " + values[2] + "&lt;br/&gt;");
+    document.write("element at index 10 is: " + values[10]); // undefined
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section id="control">
+      <h2>Control Statements</h2>
+      <h3>1) if / if-else / else-if</h3>
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    function f(){
+      var a = 10;
+      var b = 18;
+      if (a &lt;= 10) {
+        document.write("a value is less than or equal to 10&lt;br/&gt;");
+      }
+      if (b &lt;= 10) {
+        document.write("b value is less than or equal to 10&lt;br/&gt;");
+      } else if (b &lt; 15) {
+        document.write("b value is less than 15&lt;br/&gt;");
+      } else {
+        document.write("b value is greater than or equal to 15&lt;br/&gt;");
+      }
+    }
+    f();
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <h3>2) switch</h3>
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    function f(){
+      var a = 17;
+      switch(a){
+        case 0:  document.write("a is 0"); break;
+        case 5:  document.write("a is 5"); break;
+        case 10: document.write("a is 10"); break;
+        default: document.write("a is not matched with any case");
+      }
+    }
+    f();
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <h3>3) while</h3>
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    function f(){
+      var a = 0;
+      while(a &lt; 10){
+        document.write("a is : " + a + "&lt;br/&gt;");
+        a++;
+      }
+    }
+    f();
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <h3>4) for</h3>
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    function f(){
+      for (var a = 0; a &lt; 10; a++){
+        document.write("a is : " + a + "&lt;br/&gt;");
+      }
+    }
+    f();
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section id="date">
+      <h2>Date</h2>
+      <p>Create dates with different constructors and read parts of the date.</p>
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    function f(){
+      var d1 = new Date();
+      document.writeln("d1: " + d1 + "&lt;br/&gt;");
+      document.writeln("d1 date: " + d1.getDate() + "&lt;br/&gt;");
+      document.writeln("d1 day: " + d1.getDay() + "&lt;br/&gt;");
+      document.writeln("d1 year: " + d1.getFullYear() + "&lt;br/&gt;");
+      document.writeln("d1 hours: " + d1.getHours() + "&lt;br/&gt;");
+      document.writeln("d1 minutes: " + d1.getMinutes() + "&lt;br/&gt;");
+      document.writeln("d1 seconds: " + d1.getSeconds() + "&lt;br/&gt;");
+    }
+    f();
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    function f(){
+      var d1 = new Date(450000000);
+      document.writeln("d1: " + d1 + "&lt;br/&gt;");
+
+      var d2 = new Date('january 27 2013');
+      document.writeln("d2: " + d2 + "&lt;br/&gt;");
+
+      var d3 = new Date(2020,10,28);
+      document.writeln("d3: " + d3 + "&lt;br/&gt;");
+    }
+    f();
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section id="objects">
+      <h2>Objects</h2>
+      <p>Objects are collections of properties (key–value pairs).</p>
+      <pre><code>var person = {
+  name: "Santosh",
+  age: 35,
+  channel: "Reactify Hub",
+  getmydetails: function(){ return "my name is: " + this.name; }
+};
+
+document.write("age is " + person.age + "&lt;br/&gt;");
+document.write(person.getmydetails());</code></pre>
+
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    function f(){
+      var person = {name:"Santosh", age:35, channel:"Reactify Hub",
+                    getmydetails: function(){ return "my name is : " + this.name; }};
+      // add properties dynamically
+      person["city"] = "Visakhapatnam";
+      document.write("age is " + person.age + "&lt;br/&gt;");
+      document.write(person.getmydetails());
+    }
+    f();
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section id="events">
+      <h2>Events</h2>
+      <p>Run JavaScript in response to user interactions.</p>
+      <ul>
+        <li><code>onchange</code>, <code>onclick</code>, <code>ondblclick</code>, <code>onmouseover</code>, <code>onmouseout</code></li>
+        <li><code>onkeydown</code>, <code>onkeyup</code>, <code>onkeypress</code></li>
+        <li><code>onload</code>, <code>onfocus</code>, <code>onblur</code></li>
+      </ul>
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    function f(){ document.write("Welcome to Reactify Hub"); }
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;button onclick="f()"&gt;Click me&lt;/button&gt;&lt;br/&gt;&lt;br/&gt;
+  &lt;input type="checkbox" value="subscribe" onchange="f()" /&gt; Subscribe&lt;br/&gt;&lt;br/&gt;
+  &lt;button onmouseover="f()"&gt;mouse over me&lt;/button&gt;&lt;br/&gt;&lt;br/&gt;
+  &lt;button onmouseout="f()"&gt;mouse out from me&lt;/button&gt;&lt;br/&gt;&lt;br/&gt;
+  Enter Your Name &lt;input type="text" onfocus="f()" /&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section id="errors">
+      <h2>Error Handling</h2>
+      <p>Errors stop program execution. Use <code>try</code>, <code>catch</code>, <code>throw</code>, and <code>finally</code> to handle them.</p>
+      <h3>Bad Example (will error)</h3>
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    function f(){
+      document.write("Before Error Line");
+      window.alerting("Hello Welcome"); // typo: alerting
+      document.write("After Error Line");
+    }
+    f();
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <h3>Handled with try–catch–finally</h3>
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    function f(){
+      document.write("Before Error Line&lt;br/&gt;");
+      try{
+        window.alerting("Hello Welcome"); // will throw
+      } catch(err){
+        alert("error is: " + err.message);
+      } finally {
+        document.write("After Error Line in finally");
+      }
+    }
+    f();
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <h3>User-defined Exception</h3>
+      <pre><code>&lt;html&gt;
+&lt;head&gt;
+  &lt;script type="text/javascript"&gt;
+    function f(){
+      var input = window.prompt("enter a number below 10");
+      var num = parseInt(input);
+      if (num &lt; 10) document.write("Correct input");
+      try{
+        if (num &gt;= 10) throw new Error("Wrong input");
+      } catch(err){
+        alert(err.message);
+      }
+    }
+    f();
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <p class="footer">© Reactify Hub • Compiled by Subbu — JavaScript Basics (Lecture Notes)</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JavaScript Basics – Reactify Hub (Lecture Notes) — Subbu</title>
+  <style>
+    /* Page container */
+.container {
+  max-width: 1082px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #212529; /* dark bg */
+  color: #f8f9fa;
+  border-radius: 10px;
+}
+
+/* Accordion box */
+.accordion details {
+  background: #b6171f; /* red background for headers */
+  border-radius: 10px;
+  margin: 12px 0;
+  overflow: hidden;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Accordion summary */
+.accordion summary {
+  padding: 15px 18px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.accordion summary::after {
+  content: "⌄";
+  font-size: 1.2rem;
+  transition: transform 0.3s;
+}
+
+details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+/* Accordion content */
+.accordion .content {
+  background: #343a40; /* dark inner content */
+  padding: 15px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  border-radius: 0 0 10px 10px;
+  color: #f8f9fa;
+}
+
+/* Code blocks */
+pre {
+  background: #1c1f24;
+  border-radius: 8px;
+  padding: 10px;
+  color: #f1f1f1;
+  font-size: 0.95rem;
+  overflow-x: auto;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="cover" id="cover">
+      <div class="kicker">Reactify Hub — Lecture Notes</div>
+      <h1 class="title">JavaScript Basics</h1>
+      <p class="subtitle">Step-by-step explanations with examples and outputs</p>
+      <span class="badge">By <strong>Subbu</strong> • Reactify Hub</span>
+      <div class="credits">Updated and formatted for clarity</div>
+    </header>
+
+    <section class="accordion">
+
+      <!-- Introduction -->
+      <details>
+        <summary>Introduction</summary>
+        <div class="content">
+          <p>JavaScript is a <strong>scripting language</strong>. A scripting language is a lightweight programming language.</p>
+          <ul>
+            <li>JavaScript code can be inserted into <strong>HTML pages</strong>.</li>
+            <li>It can be executed by all modern web browsers.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Script tag -->
+      <details>
+        <summary>The &lt;script&gt; Tag</summary>
+        <div class="content">
+          <p><strong>Step 1:</strong> Add a script tag inside your HTML.</p>
+          <pre><code>&lt;script type="text/javascript"&gt;
+// JavaScript code here
+&lt;/script&gt;</code></pre>
+          <div class="note">✅ You can place scripts in both the <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> sections.</div>
+        </div>
+      </details>
+
+      <!-- Output -->
+      <details>
+        <summary>Output in JavaScript</summary>
+        <div class="content">
+          <h3>1) document.write()</h3>
+          <pre><code>&lt;script&gt;
+document.write("Hello... Welcome to JavaScript Class from Reactify Hub");
+&lt;/script&gt;</code></pre>
+
+          <h3>2) innerHTML</h3>
+          <pre><code>&lt;h1 id="special"&gt;&lt;/h1&gt;
+&lt;script&gt;
+document.getElementById("special").innerHTML = "Welcome to JS Class from Reactify Hub";
+&lt;/script&gt;</code></pre>
+
+          <h3>3) window.alert()</h3>
+          <pre><code>&lt;script&gt;
+window.alert("Welcome to JS from Reactify Hub");
+&lt;/script&gt;</code></pre>
+        </div>
+      </details>
+
+      <!-- Comments -->
+      <details>
+        <summary>Comments</summary>
+        <div class="content">
+          <h3>Single-line</h3>
+          <pre><code>// This is a comment
+// document.write("Hello");</code></pre>
+
+          <h3>Multi-line</h3>
+          <pre><code>/* This is a multi-line comment
+   It won’t be executed */</code></pre>
+        </div>
+      </details>
+
+      <!-- Variables -->
+      <details>
+        <summary>Variables & Data Types</summary>
+        <div class="content">
+          <p>Variables are containers for data values. Declare using <code>var</code>, <code>let</code>, or <code>const</code>.</p>
+          <pre><code>var a = 2;               // Number
+var b = "Reactify Hub";  // String
+var c = true;            // Boolean
+var d = new Array();     // Array</code></pre>
+
+          <p>JavaScript is <em>dynamically typed</em> (type is decided at runtime).</p>
+          <ul>
+            <li>Number, String, Boolean, Object, Array, Undefined, Null</li>
+          </ul>
+          <pre><code>var length = 16;                              // Number
+var lastName = "Johnson";                     // String
+var x = { firstName: "John", lastName: "Doe"}; // Object
+var c = true;                                 // Boolean
+var d = new Array(1,2,3);                     // Array</code></pre>
+        </div>
+      </details>
+
+      <!-- Popup Boxes -->
+      <details>
+        <summary>Popup Boxes</summary>
+        <div class="content">
+          <h3>1) Alert</h3>
+          <pre><code>window.alert("Welcome to JS alert box from Reactify Hub");</code></pre>
+
+          <h3>2) Confirm</h3>
+          <pre><code>window.confirm("Are you sure to delete this file?");</code></pre>
+
+          <h3>3) Prompt</h3>
+          <pre><code>var name = window.prompt("Please enter your name");
+document.write("Hello " + name + ", Welcome to Reactify Hub channel");</code></pre>
+        </div>
+      </details>
+
+      <!-- Operators -->
+      <details>
+        <summary>Operators</summary>
+        <div class="content">
+          <h3>Arithmetic</h3>
+          <pre><code>var a = 10, b = 5;
+document.write("a+b = " + (a+b));</code></pre>
+
+          <h3>Comparison</h3>
+          <pre><code>var x=5, y=10;
+document.write(x &lt; y); // true</code></pre>
+
+          <h3>Logical</h3>
+          <pre><code>(x &lt; 10 &amp;&amp; y &gt; 1) // AND
+(x == 5 || y == 5)   // OR
+!(x == y)            // NOT</code></pre>
+        </div>
+      </details>
+
+      <!-- Functions -->
+      <details>
+        <summary>Functions</summary>
+        <div class="content">
+          <pre><code>// Declaration
+function functionName(optionalParameters){
+  // function code
+}
+
+// Call
+functionName(/* values if any */);</code></pre>
+
+          <h3>Example: Call Immediately</h3>
+          <pre><code>&lt;script&gt;
+function f() {
+  window.alert("Hello from Reactify Hub");
+}
+f();
+&lt;/script&gt;</code></pre>
+        </div>
+      </details>
+
+      <!-- Arrays -->
+      <details>
+        <summary>Arrays</summary>
+        <div class="content">
+          <pre><code>var values = new Array(10,20,30,40,50);
+document.write("element at index 2 is: " + values[2] + "&lt;br/&gt;");
+document.write("element at index 10 is: " + values[10]); // undefined</code></pre>
+        </div>
+      </details>
+
+      <!-- Control -->
+      <details>
+        <summary>Control Statements</summary>
+        <div class="content">
+          <h3>if / else-if / else</h3>
+          <pre><code>var a = 10;
+if (a &lt;= 10) {
+  document.write("a value is less than or equal to 10");
+}</code></pre>
+
+          <h3>for loop</h3>
+          <pre><code>for (var i=0; i&lt;5; i++){
+  document.write(i + "&lt;br/&gt;");
+}</code></pre>
+        </div>
+      </details>
+
+      <!-- Date -->
+      <details>
+        <summary>Date</summary>
+        <div class="content">
+          <pre><code>var d1 = new Date();
+document.writeln("Year: " + d1.getFullYear());</code></pre>
+        </div>
+      </details>
+
+      <!-- Objects -->
+      <details>
+        <summary>Objects</summary>
+        <div class="content">
+          <pre><code>var person = {
+  name: "Santosh",
+  age: 35,
+  channel: "Reactify Hub",
+  getmydetails: function(){ return "my name is: " + this.name; }
+};
+
+document.write("age is " + person.age + "&lt;br/&gt;");
+document.write(person.getmydetails());</code></pre>
+        </div>
+      </details>
+
+      <!-- Events -->
+      <details>
+        <summary>Events</summary>
+        <div class="content">
+          <pre><code>&lt;button onclick="alert('Welcome to Reactify Hub')"&gt;Click&lt;/button&gt;
+&lt;input type="checkbox" onchange="alert('Checked!')" /&gt;</code></pre>
+        </div>
+      </details>
+
+      <!-- Error Handling -->
+      <details>
+        <summary>Error Handling</summary>
+        <div class="content">
+          <h3>try–catch–finally</h3>
+          <pre><code>try {
+  window.alerting("Hello Welcome"); // typo
+} catch(err){
+  alert("error is: " + err.message);
+} finally {
+  document.write("After Error Line in finally");
+}</code></pre>
+
+          <h3>User-defined Exception</h3>
+          <pre><code>var input = window.prompt("enter a number below 10");
+var num = parseInt(input);
+try{
+  if (num &gt;= 10) throw new Error("Wrong input");
+} catch(err){
+  alert(err.message);
+}</code></pre>
+        </div>
+      </details>
+
+    </section>
+
+    <p class="footer">© Reactify Hub • Compiled by Subbu — JavaScript Basics (Lecture Notes)</p>
+  </div>
+
+  <script>
+    // Accordion behavior: only one open at a time
+    const accordions = document.querySelectorAll(".accordion details");
+    accordions.forEach((el) => {
+      el.addEventListener("toggle", () => {
+        if (el.open) {
+          accordions.forEach((other) => {
+            if (other !== el) other.removeAttribute("open");
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
